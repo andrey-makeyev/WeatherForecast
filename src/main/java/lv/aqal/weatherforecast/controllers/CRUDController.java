@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
- * Forecast controller.
+ * CRUD controller.
  */
 @Controller
 public class CRUDController {
