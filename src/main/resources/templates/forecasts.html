@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>Weather Forecast</title>
+
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+<div class="container">
+    <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+    <div th:if="${not #lists.isEmpty(forecasts)}">
+        <h2>City List</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>Id</th>
+                <th>City Id</th>
+                <th>City</th>
+                <th>Temperature</th>
+                <th>View</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            <tr th:each="forecast : ${forecasts}">
+                <td th:text="${forecast.id}"><a href="/forecast/${forecast.id}">Id</a></td>
+                <td th:text="${forecast.cityId}">City Id</td>
+                <td th:text="${forecast.city}">City</td>
+                <td th:text="${forecast.temperature}">Temperature</td>
+                <td><a th:href="${ '/forecast/' + forecast.id}">View</a></td>
+                <td><a th:href="${'/forecast/edit/' + forecast.id}">Edit</a></td>
+                <td><a th:href="${'/forecast/delete/' + forecast.id}">Delete</a></td>
+            </tr>
+        </table>
+
+    </div>
+</div>
+
+</body>
+</html>
