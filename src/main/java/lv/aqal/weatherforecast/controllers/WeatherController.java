@@ -22,7 +22,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import java.io.IOException;
 
-@ComponentScan("lv.aqal.weatherforecast")
+@ComponentScan("lv.aqal.weatherforecast.config")
 @Controller
 public class WeatherController {
 

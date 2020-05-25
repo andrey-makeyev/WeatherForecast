@@ -1,4 +1,4 @@
-package lv.aqal.weatherforecast;
+package lv.aqal.weatherforecast.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
