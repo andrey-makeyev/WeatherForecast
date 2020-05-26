@@ -1,15 +1,62 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
-    <title>Weather Forecast</title>
+
+    <title>Weather Summary</title>
+
     <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
 </head>
-<body>
-
-<div class="container">
+<div>
+<div class="container bg-light justify-content-center">
     <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
 
-</div>
-
+    <h1>Get your local weather summary: </h1>
+            <form class="form-horizontal" th:action="showWeather" method="post" autocomplete="off" >
+                <div class="form-group">
+                    <label for="user" class="col-sm-2 control-label">Your name:</label>
+                    <div class="col-sm-10">
+                    <!--/*@thymesVar id="user" type="java.lang.String"*/-->
+                        <!-- <input type="text" name="user" id="user" th:value="${user}"/> -->
+                        <input type="text" th:value="${user}" name="user" id="user" placeholder="Required field" class="form-control"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="city" class="col-sm-2 control-label">City:</label>
+                    <div class="col-sm-10">
+                    <!--/*@thymesVar id="city" type="java.lang.String"*/-->
+                        <!--  <input type="text" name="city" id="city" th:value="${city}"/> -->
+                        <input type="text" th:value="${city}" name="city" id="city" class="form-control"/>
+                    </div>
+                </div>
+                <hr>
+                    <h1>Enter geolocation instead of city: </h1>
+                <div class="form-group">
+                    <label for="longitude" class="col-sm-2 control-label">Longitude:</label>
+                    <div class="col-sm-10">
+                    <!--/*@thymesVar id="longitude" type="java.lang.String"*/-->
+                        <!-- <input type="text" name="longitude" id="longitude" th:value="${longitude}"/> -->
+                         <input type="text" th:value="${longitude}" name="longitude" id="longitude" class="form-control"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="latitude" class="col-sm-2 control-label">Latitude:</label>
+                    <div class="col-sm-10">
+                    <!--/*@thymesVar id="latitude" type="java.lang.String"*/-->
+                        <!-- <input type="text" name="latitude" id="latitude" th:value="${latitude}"/> -->
+                        <input type="text" th:value="${latitude}" name="latitude" id="latitude" class="form-control"/>
+                    </div>
+                </div>
+            <div>
+                <hr>
+                <div class="row">
+                    <button class="btn btn-primary btn-lg btn-block" name="Submit" type="Submit">
+                        Check Weather</button>
+                </div>
+            </div>
+            </form>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>
