@@ -10,7 +10,7 @@
 <div class="container bg-light justify-content-center">
     <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
 
-<h1>Weather now:</h1>
+<h1>Current Weather Summary</h1>
 <div class="image">
     <img src="/static/img/default.png" width="105" height="105" alt=""/>
 </div>
@@ -19,7 +19,7 @@
     <table width="35%" border="0" cellspacing="5" cellpadding="5">
         <tbody>
         <tr>
-            <td><label>Weather in:</label></td>
+            <td><label>City:</label></td>
             <!--/*@thymesVar id="city" type="java.lang.String"*/-->
             <td><span th:text="${city}"></span></td>
         </tr>
@@ -44,7 +44,7 @@
             <td><span th:text="${humidity}"></span></td>
         </tr>
         <tr>
-            <td><label>Cloud Cover:</label></td>
+            <td><label>Cloud cover:</label></td>
             <!--/*@thymesVar id="rain" type="java.lang.String"*/-->
             <td><span th:text="${rain}"></span></td>
         </tr>
