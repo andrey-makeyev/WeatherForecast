@@ -24,9 +24,6 @@ public class WeatherController {
     @Autowired
     WeatherService weatherService;
 
-
-
-
     @RequestMapping("/")
     public String index(Model model) {
 
@@ -38,21 +35,20 @@ public class WeatherController {
         String text;
         ModelAndView modelAndView = new ModelAndView();
         if ((city.trim().equals("")) && (longitude == null || longitude.trim().equals("")) && (latitude == null || latitude.trim().equals(""))) {
-            text = LocalDateTime.now() + " Enter city or geolocation data";
+            text = LocalDateTime.now() + " Enter city or geolocation data.";
             getException(modelAndView, null, text);
         } else if (!city.trim().equals("") && !longitude.trim().equals("") && !latitude.trim().equals("")) {
-            text = LocalDateTime.now() + " Either the city or geolocation data must be entered, but not all together";
+            text = LocalDateTime.now() + " Either the city or geolocation data must be entered, but not all together.";
             getException(modelAndView, null, text);
         } else if (user == null || user.trim().equals("")) {
-            text = LocalDateTime.now() + " Username is empty";
+            text = LocalDateTime.now() + " Username is empty.";
             getException(modelAndView, null, text);
         } else if (city.trim().equals("") && (!(NumberUtils.isNumber(latitude) && NumberUtils.isNumber(longitude)))) {
             text = LocalDateTime.now() + " \n" +
-                    "Geolocation fields should only contain numbers";
+                    "Geolocation fields should only contain numbers.";
             getException(modelAndView, null, text);
         } else {
             LOG.info("User " + user + " come " + LocalDateTime.now());
-
 
             Weather weather = null;
             if (!city.trim().equals("")) {
@@ -60,7 +56,6 @@ public class WeatherController {
             } else if (!(longitude.trim().equals("") && latitude.trim().equals(""))) {
                 weather = weatherService.getWeatherByGeo(longitude, latitude);
             }
-
 
             if (weather != null) {
                 if (Objects.nonNull(weather.getCity().getCountry())) {
@@ -76,25 +71,23 @@ public class WeatherController {
                 modelAndView.addObject("city", city);
                 modelAndView.setViewName("weather");
 
-
                 modelAndView.addObject("temp", weather.getData().getDataMain().getTemp());
                 modelAndView.addObject("pressure", weather.getData().getDataMain().getPressure());
                 modelAndView.addObject("humidity", weather.getData().getDataMain().getHumidity());
                 modelAndView.addObject("rain", weather.getData().getPrecipitation().getDescription());
                 modelAndView.addObject("precipitation", weather.getData().getPrecipitation().getMain());
 
-                LOG.info(LocalDateTime.now() + " User " + user + " ask weather  for city " + city + " and get data: " + weather.toString());
+                LOG.info(LocalDateTime.now() + " User " + user + " requested the weather for city " + city + " and received response: " + weather.toString());
             } else {
                 if (!city.trim().equals("")) {
-                    text = LocalDateTime.now() + " User " + user + " ask weather  for city " + city + ", it not found";
+                    text = LocalDateTime.now() + " User " + user + " requested the weather for city " + city + ". City not found.";
                 } else {
-                    text = LocalDateTime.now() + " User " + user + " ask weather  by  geo: longitude" + longitude + " and latitude " + latitude + ", it not found";
+                    text = LocalDateTime.now() + " User " + user + " requested the weather by geolocation: longitude " + longitude + " and latitude " + latitude + ". Geolocation not found.";
                 }
                 getException(modelAndView, null, text);
                 LOG.error(text);
             }
         }
-
 
         return modelAndView;
     }

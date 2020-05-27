@@ -12,7 +12,7 @@
 	<artifactId>weatherForecast</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
-	<name>Weather Forecast</name>
+	<name>WeatherApp</name>
 	<description>Weather Summary application with CRUD functions</description>
 
 	<properties>
@@ -54,7 +54,6 @@
 			<groupId>com.github.ben-manes.caffeine</groupId>
 			<artifactId>caffeine</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -94,7 +93,7 @@
 		<dependency>
 			<groupId>org.codehaus.jackson</groupId>
 			<artifactId>jackson-mapper-asl</artifactId>
-
+			<version>1.9.13</version>
 		</dependency>
 		<!--  logger-->
 		<dependency>

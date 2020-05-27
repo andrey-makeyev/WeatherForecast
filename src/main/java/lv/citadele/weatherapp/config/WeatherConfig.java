@@ -10,7 +10,7 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 @Configuration
 @PropertySource("classpath:application.properties")
 @ComponentScan
-public class WeatherConfigurations {
+public class WeatherConfig {
 	
 	@Value("${weather.url}")
 	private String url;
