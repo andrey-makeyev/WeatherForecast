@@ -10,24 +10,29 @@
 <div class="container bg-light justify-content-center">
     <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
 
-    <h2>Forecast Details</h2>
+    <h2>Weather Data</h2>
         <div>
             <form class="form-horizontal">
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Forecast Id:</label>
+                    <label class="col-sm-2 control-label">ID:</label>
                     <div class="col-sm-10">
-                        <p class="form-control-static" th:text="${forecast.id}">Forecast Id</p></div>
+                        <p class="form-control-static" th:text="${forecast.id}">ID</p></div>
                 </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Dummy Zip Code:</label>
+                        <div class="col-sm-10">
+                            <p class="form-control-static" th:text="${forecast.cityId}">Dummy Zip Code</p></div>
+                    </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">City:</label>
+                    <label class="col-sm-2 control-label">Dummy City:</label>
                     <div class="col-sm-10">
-                        <p class="form-control-static" th:text="${forecast.city}">City</p>
+                        <p class="form-control-static" th:text="${forecast.city}">Dummy City</p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Temperature:</label>
+                    <label class="col-sm-2 control-label">Dummy Temperature:</label>
                     <div class="col-sm-10">
-                        <p class="form-control-static" th:text="${forecast.temperature}">Temperature</p>
+                        <p class="form-control-static" th:text="${forecast.temperature}">Dummy Temperature</p>
                     </div>
                 </div>
             </form>
